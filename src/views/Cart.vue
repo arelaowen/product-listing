@@ -17,7 +17,7 @@
                                     </v-avatar>
                                 </template>
                                 <v-list-item-title class="text-h6">
-                                    {{getProductDetail(item)['title']}}
+                                    {{getProductDetail(item)['title']}} <span class="text-subtitle-1">({{moment(item.date).format("L")}})</span>
                                 </v-list-item-title>
                                 <v-list-item-subtitle class="text-h6 pt-1">
                                     <v-icon size="x-small">mdi-currency-php</v-icon>
@@ -64,6 +64,7 @@
 import { ref } from "vue"
 import { useCart } from '@/store/cart'
 import { storeToRefs } from 'pinia'
+import moment from "moment"
 
 export default {
     setup(){
@@ -72,7 +73,8 @@ export default {
         const products = ref([])
         return {
             cartList,
-            products
+            products,
+            moment
         }
     },
     methods: {
