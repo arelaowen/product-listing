@@ -41,6 +41,16 @@ const routes: Array<RouteRecordRaw> = [
       Navbar: () =>  import('@/components/Navbar.vue')
     }
   },
+  {
+    path: '/cart',
+    meta: {
+        searchEnabled: false
+    },
+    components: {
+      default: () => import('@/views/Cart.vue'),
+      Navbar: () =>  import('@/components/Navbar.vue')
+    }
+  },
 ]
 
 const router = createRouter({

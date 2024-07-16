@@ -7,14 +7,17 @@
       <v-spacer></v-spacer>
 
         <template v-if="cartList.length > 0">
-          <v-badge color="error" offset-x="12"
-            :content="cartList.length">
-            <v-icon icon="mdi-cart" class="mr-4"></v-icon>
+          <v-badge 
+          color="error" 
+          offset-x="12"
+          :content="cartList.length"
+          >
+            <v-icon icon="mdi-cart" class="mr-4" @click="$router.push({path: '/cart'})" style="cursor: pointer"></v-icon>
           </v-badge>
         </template>
 
         <template v-else>
-          <v-icon icon="mdi-cart" class="mr-4"></v-icon>
+          <v-icon icon="mdi-cart" class="mr-4" @click="$router.push({path: '/cart'})" style="cursor: pointer"></v-icon>
         </template>
         
         <template v-if="!isAuthenticated">

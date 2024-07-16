@@ -24,7 +24,8 @@ export const useCart = defineStore('cart', () => {
                         ]
                 }
             })
-            if(this.cartList.filter((f:any) => f.id == item.id).length > 0){
+
+            if(this.cartList.filter((f:any) => f.userId == storage.getStorageSync("userID") && f.products.find((ff:any) => ff.productId == item.id) != undefined).length > 0){
                 // already in cart
             }else{
                 this.cartList.push(response.data)
