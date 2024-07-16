@@ -73,28 +73,33 @@ export default {
             this.$storage.clearStorageSync();
             const { valid } = await this.$refs.form.validate()
             if(valid){
-                const response = await this.$api.procapi({
-                    method: "POST",
-                    url: `auth/login`,
-                    data: {
-                        username: this.username,
-                        password: this.password
-                    }
-                })
-
-                // if authenticated
-                if(response.data.token != undefined){
-                    // get user details
-                    const user = await this.$api.procapi({
-                        method: "GET",
-                        url: "users"
+                try {
+                    const response = await this.$api.procapi({
+                        method: "POST",
+                        url: `auth/login`,
+                        data: {
+                            username: this.username,
+                            password: this.password
+                        }
                     })
-                    let userID = user.data.find((f:any) => f.username == this.username && f.password == this.password).id
-                    this.$storage.setStorageSync("userID", userID, 3600000);           
-                    this.$storage.setStorageSync("authKey", response.data.token, 3600000);
-                    this.close();
-                    this.$router.go(0);
+
+                    // if authenticated
+                    if(response.data.token != undefined){
+                        // get user details
+                        const user = await this.$api.procapi({
+                            method: "GET",
+                            url: "users"
+                        })
+                        let userID = user.data.find((f:any) => f.username == this.username && f.password == this.password).id
+                        this.$storage.setStorageSync("userID", userID, 3600000);           
+                        this.$storage.setStorageSync("authKey", response.data.token, 3600000);
+                        this.close();
+                        this.$router.go(0);
+                    }
+                }catch(err){
+                    alert("There is a server problem encountered!")
                 }
+                
             }
         }
     }
