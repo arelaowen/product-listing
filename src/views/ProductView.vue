@@ -98,6 +98,7 @@ export default {
             if(this.$storage.getStorageSync("authKey") == undefined){
                 this.loginStatus = true
             }else{
+                this.product.qty = this.qty
                 this.pushToCart(this.product)
             }
         }
