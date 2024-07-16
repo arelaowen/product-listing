@@ -7,7 +7,7 @@
                 </v-card-title>
                 <v-divider/>
                 <v-card-text class="pb-0 mb-0">
-                    <v-list lines="three">
+                    <v-list lines="three" v-if="cartList.length > 0">
                         <template v-for="item in cartList" :key="item.id">
                             <v-list-item v-if="getProductDetail(item) != undefined">
                                 <template v-slot:prepend>
@@ -45,8 +45,12 @@
                             </v-list-item>
                         </template>
                     </v-list>
+
+                    <div class="text-center pb-2 text-h6 text-error" v-else>
+                        No items available.
+                    </div>
                 </v-card-text>
-                <v-card-actions class="mr-2 mb-2">
+                <v-card-actions class="mr-2 mb-2" v-if="cartList.length > 0">
                     <v-spacer/>
                     <v-btn variant="elevated" color="primary">Proceed Checkout</v-btn>
                 </v-card-actions>
