@@ -1,31 +1,47 @@
 # product-list
 
-The purpose of this application is only to showcase CRUD functionality using api calls.
-
-To test CRUD functionality login using one of available users in https://fakestoreapi.com/ and goto Product Maintenance module.
-
-Note that functionality is only limited, elements you may found not working is only an add-on style to this application.
+This project is built to showcase how frontend applications interact with APIs to manage data.
 
 
-## Project setup
-```
-npm install
-```
+## Project Purpose
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+- Demonstrate API integration
+- Implement CRUD operations
+- Simulate real-world product maintenance workflows
+- Practice handling asynchronous requests and state management
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
+## API Used
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+This project uses:
+
+👉 https://fakestoreapi.com/
+
+
+## How to Test the Application
+
+1. Go to: https://fakestoreapi.com/
+2. Use one of the available test users to log in.
+3. After logging in, navigate to the **Product Maintenance** module.
+4. Perform Create, Read, Update, and Delete operations.
+
+
+## Important Notes
+
+- This application is created **for demonstration purposes only**.
+- CRUD operations are limited to what the Fake Store API allows.
+- Some UI elements may not be fully functional.
+- Certain features are included for styling or layout purposes only and are not fully implemented.
+
+## Tech Stack
+
+- **VueJS 3**
+- **Vuetify**
+- **TypeScript**
+- **REST API (Fake Store API)**
+
+## Live Demo
+
+**https://arelaowen.github.io/product-listing**
+
+
